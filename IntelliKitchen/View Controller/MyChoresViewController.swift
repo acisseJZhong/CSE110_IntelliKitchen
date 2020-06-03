@@ -182,7 +182,7 @@ extension MyChoresViewController: UITableViewDataSource, UITableViewDelegate {
                         formatter.dateFormat = "MM/dd/yyyy"
                         let newRemindDate = self.updateRemindDate(date: formatter.string(from: Date()), freq: frequency)
                         var newRequestID = ""
-                        if (remindOrNot){
+                        if remindOrNot{
                             newRequestID = self.pushNotification(chore: choreRef, choreName: choreName, frequency: frequency, lastDone: lastDone, remindDate: remindDate)
                         }
                         choreRef.setData(["choreName": choreName, "frequency": frequency, "lastDone": lastDone, "remindDate": newRemindDate, "remindOrNot": remindOrNot, "reminderID": newRequestID])
@@ -258,6 +258,10 @@ extension MyChoresViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }
+//            print(choreName)
+//            self.pushNotification(chore: thisChore)
+//            print(indexPath.row)
+
            })
         RemindAction.backgroundColor = UIColor.init(red: 255/255, green: 211/255, blue: 0/255, alpha: 0.85)
         
